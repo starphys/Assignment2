@@ -4,7 +4,17 @@ import java.io.File;
 import java.io.PrintWriter;
 import java.util.Scanner;
 
+/**
+ * MyFile is a static class that implements a method to find primes and a method write primes from one file to another
+ */
 public class MyFile {
+
+    /**
+     * writePrimes searches a file for prime integers and stores them in a new file
+     *
+     * @param file1 String - name of the file to search
+     * @param file2 String - name of the file to populate with primes
+     */
     public static void writePrimes(String file1, String file2) {
         try (Scanner input = new Scanner(new File(file1)); PrintWriter output = new PrintWriter(file2)) {
             while (input.hasNextLine()) {
@@ -29,6 +39,12 @@ public class MyFile {
         }
     }
 
+    /**
+     * isPrime iteratively checks if an integer is prime
+     *
+     * @param n int - number to check for primeness
+     * @return boolean - true if n is prime, otherwise false
+     */
     private static boolean isPrime(int n) {
         for (int i = 2; i <= Math.sqrt(n); i++) {
             if (n % i == 0)
